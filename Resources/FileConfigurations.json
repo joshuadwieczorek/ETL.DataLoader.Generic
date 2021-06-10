@@ -1,0 +1,38 @@
+[
+    //{
+    //    "Vendor": "eleadtrm",
+    //    "PathPickup": "D:\\AutoAdGroup\\data\\unit-counts\\drop-off",
+    //    "PathArchive": "D:\\AutoAdGroup\\data\\unit-counts\\archive",
+    //    "DirectorySearchPattern": "*.csv",
+    //    "DatabaseConnectionName": "Accounting",
+    //    "DatabaseTableName": "[RAW].[UnitCounts]",
+    //    "PostLoadStoredProcedure": "[dbo].[NormalizeUnitCounts]"
+    //},
+    {
+        "Vendor": "carnow",
+        "PathPickup": "C:\\DataLake\\ChatReport\\CarNow\\dropoff",
+        "PathArchive": "C:\\DataLake\\ChatReport\\CarNow\\archive",
+        "DirectorySearchPattern": "*.txt",
+        "DatabaseConnectionName": "Reporting",
+        "DatabaseTableName": "[dbo].[CarNow]",
+        "PostLoadStoredProcedure": ""
+    },
+    {
+        "Vendor": "gubagoo",
+        "PathPickup": "C:\\DataLake\\ChatReport\\Gubagoo\\dropoff",
+        "PathArchive": "C:\\DataLake\\ChatReport\\Gubagoo\\archive",
+        "DirectorySearchPattern": "*.csv",
+        "DatabaseConnectionName": "Reporting",
+        "DatabaseTableName": "[dbo].[Gubagoo]",
+        "PostLoadStoredProcedure": ""
+    }
+   //{
+   //     "Vendor": "seo",
+   //     "PathPickup": "C:\\Users\\gfarinas\\Documents\\Data Files\\SEO\\dropoff",
+   //     "PathArchive": "C:\\Users\\gfarinas\\Documents\\Data Files\\SEO\\archive",
+   //     "DirectorySearchPattern": "*.txt",
+   //     "DatabaseConnectionName": "Reporting",
+   //     "DatabaseTableName": "[dbo].[SEOClarity]",
+   //     "PostLoadStoredProcedure": ""
+   // }
+]

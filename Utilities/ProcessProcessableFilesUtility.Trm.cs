@@ -1,0 +1,32 @@
+﻿using CsvHelper;
+using ETL.DataLoader.Generic.Contracts;
+using ETL.DataLoader.Generic.Contracts.FileModels;
+using ETL.DataLoader.Generic.Data;
+using ETL.DataLoader.Generic.Data.TableGenerators;
+using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
+
+namespace ETL.DataLoader.Generic.Utilities
+{
+    public partial class ProcessProcessableFilesUtility : IProcessProcessableFilesUtility
+    {
+        /// <summary>
+        /// Process TRM file.
+        /// </summary>
+        /// <param name="dbContext"></param>
+        /// <param name="csvReader"></param>
+        /// <param name="processableFiles"></param>
+        /// <returns></returns>
+        private async Task ProcessTrmFile(
+              DbContext dbContext
+            , CsvReader csvReader
+            , ProcessableFiles processableFiles)
+        {
+            TrmTableGenerator tableGenerator = new TrmTableGenerator(processableFiles.DatabaseTableName);
+            var records = csvReader.GetRecords<TrmFileModel>();
+            tableGenerator.Populate(records);
+            _logger.LogInformation($"Bulk copying table!");
+            await dbContext.BulkCopy(tableGenerator.Table);
+        }
+    }
+}
